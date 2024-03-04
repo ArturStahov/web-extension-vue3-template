@@ -52,3 +52,7 @@ onMessage('get-current-tab', async () => {
     }
   }
 })
+
+onMessage('activate-extension-event', (data) => {
+  console.log('EVENT FROM POPUP > CONTENT_SCRIPT ACTIVATED', data)
+})

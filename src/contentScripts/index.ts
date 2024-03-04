@@ -13,7 +13,14 @@ import { setupApp } from '~/logic/common-setup'
     console.log(`[vitesse-webext] Navigate from page "${data.title}"`)
   })
 
-  // mount component to context window
+  onMessage('activate-extension-event', (data) => {
+    console.log('ACTIVATE EXTENSION', data)
+    mountContentPopup();
+  })
+})()
+
+
+function mountContentPopup() {
   const container = document.createElement('div')
   container.id = __NAME__
   const root = document.createElement('div')
@@ -27,4 +34,4 @@ import { setupApp } from '~/logic/common-setup'
   const app = createApp(App)
   setupApp(app)
   app.mount(root)
-})()
+}
